@@ -33,6 +33,9 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins from github repos:
 
+" Search pattern all 
+Plug 'dyng/ctrlsf.vim'
+
 " Override configs by directory 
 Plug 'arielrossanigo/dir-configs-override.vim'
 " Better file browser
@@ -91,6 +94,8 @@ Plug 'scrooloose/syntastic'
 Plug 'lilydjwg/colorizer'
 " Ack code search (requires ack installed in the system)
 Plug 'mileszs/ack.vim'
+" Pydoc
+Plug 'fs111/pydoc.vim'
 if has('python')
     " YAPF formatter for Python
     Plug 'pignacio/vim-yapf-format'
@@ -196,10 +201,25 @@ ca w!! w !sudo tee "%"
 nmap ,r :Ack 
 nmap ,wr :Ack <cword><CR>
 
+" ctrlsf finder
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+nmap ,l <Plug>CtrlSFPrompt
+vmap ,vl <Plug>CtrlSFVwordPath
+vmap ,el <Plug>CtrlSFVwordExec
+nmap ,wl <Plug>CtrlSFCwordPath
+nmap ,bl <Plug>CtrlSFCCwordPath
+nmap ,ll <Plug>CtrlSFPwordPathh
+nnoremap <F5> :CtrlSFToggle<CR>
+inoremap <F6> <Esc>:CtrlSFToggle<CR>
+
+
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
 	let &t_Co = 256
-    colorscheme fisa
+    "colorscheme fisa
+    colorscheme delek
 else
     colorscheme delek
 endif
@@ -393,7 +413,7 @@ let g:choosewin_overlay_enable = 1
 " Airline ------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#whitespace#enabled = 0
 
 " to use fancy symbols for airline, uncomment the following lines and use a
