@@ -35,6 +35,8 @@ call plug#begin('~/.vim/plugged')
 
 " Search pattern all 
 Plug 'dyng/ctrlsf.vim'
+" Simple Fold
+Plug 'tmhedberg/SimpylFold'
 
 " Override configs by directory 
 Plug 'arielrossanigo/dir-configs-override.vim'
@@ -208,9 +210,9 @@ let g:ctrlsf_auto_focus = {
 nmap ,l <Plug>CtrlSFPrompt
 vmap ,vl <Plug>CtrlSFVwordPath
 vmap ,el <Plug>CtrlSFVwordExec
-nmap ,wl <Plug>CtrlSFCwordPath
-nmap ,bl <Plug>CtrlSFCCwordPath
-nmap ,ll <Plug>CtrlSFPwordPathh
+nmap ,wl <Plug>CtrlSFCwordPath<CR>
+nmap ,bl <Plug>CtrlSFCCwordPath<CR>
+nmap ,ll <Plug>CtrlSFPwordPath<CR>
 nnoremap <F5> :CtrlSFToggle<CR>
 inoremap <F6> <Esc>:CtrlSFToggle<CR>
 
@@ -428,3 +430,5 @@ let g:airline#extensions#whitespace#enabled = 0
 "let g:airline_symbols.branch = '⭠'
 "let g:airline_symbols.readonly = '⭤'
 "let g:airline_symbols.linenr = '⭡'
+
+inoremap jj <Esc>
