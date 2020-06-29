@@ -19,7 +19,7 @@ Most important features include:
 
   * **Go to definition** with ``,d``, or open the definition on a new tab with ``,D``.
   * **Find occurrences** with ``,o``.
-  * **Go back to previous position** ``Ctrl+O`` takes me to the previous location. Don't know about location before the search.
+  * **Go back to previous position** ``Ctrl+o`` takes me to the previous location. Don't know about location before the search.
   * **Go back to to the last change you made** Also, ```.`` will take you to the last change you made.
 
 * **Word search in current folder**
