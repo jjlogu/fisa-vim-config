@@ -20,9 +20,12 @@ nmap ,ll <Plug>CtrlSFPwordPath<CR>
 nnoremap <F5> :CtrlSFToggle<CR>
 inoremap <F6> <Esc>:CtrlSFToggle<CR>
 
+" Light Theme
 let g:airline_theme = 'papercolor'
+colorscheme default
+
+" Dark Theme
 " let g:airline_theme = 'bubblegum'
 " colorscheme vim-monokai-tasty
-colorscheme default
 
 inoremap jj <Esc>
