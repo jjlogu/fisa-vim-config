@@ -203,7 +203,7 @@ let go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 0
 let g:go_highlight_variable_assignments = 0
-let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
+"let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
 
 "Go Debug
 "Step Over
@@ -360,6 +360,12 @@ let g:maximizer_default_mapping_key = '<F4>'
 
 " Folding
 set foldmethod=syntax
+set nofoldenable
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 " Switch between vim window
 noremap <C-h> <C-w>h
