@@ -47,6 +47,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " Vim Maximizer
 Plug 'szw/vim-maximizer'
 
+" Auto close brackets
+Plug 'jiangmiao/auto-pairs'
+
 " Debugger plugins
 "Plug 'mfussenegger/nvim-dap'
 "Plug 'puremourning/vimspector'
@@ -207,22 +210,22 @@ let g:go_highlight_variable_assignments = 0
 
 "Go Debug
 "Step Over
-map <silent> <F8> :GoDebugNext<CR>
+map <silent> dn :GoDebugNext<CR>
 imap <silent> <F8> :GoDebugNext<CR>
 "Step Into
-map <silent> <F7> :GoDebugStep<CR>
+map <silent> ds :GoDebugStep<CR>
 imap <silent> <F7> :GoDebugStep<CR>
 "Step Out
-map <silent> <S-F8> :GoDebugStepOut<CR>
+map <silent> do :GoDebugStepOut<CR>
 imap <silent> <S-F8> :GoDebugStepOut<CR>
 "Continue Run
-map <silent> <F6> :GoDebugContinue<CR>
+map <silent> dc :GoDebugContinue<CR>
 imap <silent> <F6> :GoDebugContinue<CR>
 "Stop
-map <silent> <S-F6> :GoDebugStop<CR>
+map <silent> dp :GoDebugStop<CR>
 imap <silent> <S-F6> :GoDebugStop<CR>
 "Breakpoint
-map <silent> <F9> :GoDebugBreakpoint<CR>
+map <silent> db :GoDebugBreakpoint<CR>
 imap <silent> <F9> :GoDebugBreakpoint<CR>
 
 " NERDTree -----------------------------
@@ -445,3 +448,20 @@ set cursorline
 set fillchars+=vert:\
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
+" quick fix
+nmap <silent> qo :copen<CR>
+nmap <silent> qc :cclose<CR>
+
+" Automatically save the current session whenever vim is closed
+autocmd VimLeave * mksession! ~/.vim/shutdown_session.vim
+
+" ,rs restores that 'shutdown session'
+noremap ,rs :source ~/.vim/shutdown_session.vim<CR>
+
+" If you really want to, this next line should restore the shutdown session
+" automatically, whenever you start vim.  (Commented out for now, in case
+" somebody just copy/pastes this whole block)
+"
+" autocmd VimEnter source ~/.vim/shutdown_session.vim<CR>
+
