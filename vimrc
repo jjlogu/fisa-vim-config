@@ -111,6 +111,8 @@ if using_vim
     if !isdirectory(&undodir)
         call mkdir(&undodir, "p")
     endif
+
+    source $VIMRUNTIME/vimrc_example.vim
 end
 
 
@@ -160,8 +162,8 @@ nmap <silent> gr <Plug>(coc-references)
 " Go to alternate
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-nmap <silent> at :AT<CR>
-nmap <silent> aa :A<CR>
+nmap <silent> ,at :AT<CR>
+nmap <silent> ,a :A<CR>
 
 " Use U to show documentation in preview window
 nnoremap <silent> U :call <SID>show_documentation()<CR>
@@ -278,7 +280,7 @@ set shell=/bin/bash
 " Tagbar -----------------------------
 
 " toggle tagbar display
-map <F4> :TagbarToggle<CR>
+map <F6> :TagbarToggle<CR>
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
@@ -364,11 +366,11 @@ let g:maximizer_default_mapping_key = '<F4>'
 " Folding
 set foldmethod=syntax
 set nofoldenable
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+"augroup remember_folds
+  "autocmd!
+  "autocmd BufWinLeave * mkview
+  "autocmd BufWinEnter * silent! loadview
+"augroup END
 
 " Switch between vim window
 noremap <C-h> <C-w>h
@@ -447,7 +449,7 @@ set cursorline
 " remove ugly vertical lines on window division
 set fillchars+=vert:\
 
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 " quick fix
 nmap <silent> qo :copen<CR>
@@ -464,4 +466,3 @@ noremap ,rs :source ~/.vim/shutdown_session.vim<CR>
 " somebody just copy/pastes this whole block)
 "
 " autocmd VimEnter source ~/.vim/shutdown_session.vim<CR>
-
